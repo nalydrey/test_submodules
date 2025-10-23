@@ -84,8 +84,8 @@ all: main-build
 main-build: git_submodule_test.elf secondary-outputs
 
 # Tool invocations
-git_submodule_test.elf git_submodule_test.map: $(OBJS) $(USER_OBJS) D:\STM_projects\git_submodule_test\STM32F401CDUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "git_submodule_test.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\STM_projects\git_submodule_test\STM32F401CDUX_FLASH.ld" -Wl,-Map="git_submodule_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+git_submodule_test.elf git_submodule_test.map: $(OBJS) $(USER_OBJS) D:\STM_projects\test_submodules\STM32F401CDUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "git_submodule_test.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\STM_projects\test_submodules\STM32F401CDUX_FLASH.ld" -Wl,-Map="git_submodule_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
